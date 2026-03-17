@@ -1,0 +1,58 @@
+[17/03, 10:47] Suraj Vvce: -> git branch f1
+-> git checkout f1
+
+-> nano file1.txt
+-> git add file1.txt
+-> git commit -m "file1"
+
+-> nano file2.txt
+-> git add file2.txt
+-> git commit -m "file2"
+
+-> git checkout main
+-> git merge f1
+
+-> nano file3.txt
+-> git add file3.txt
+-> git commit -m "file3"
+
+-> git checkout f1
+
+-> nano file3.txt
+-> git add file3.txt
+-> git commit -m "file3"
+
+-> git checkout main
+-> git merge f1
+-> git diff f1
+[17/03, 10:48] Suhas Vvce: package example1.example1;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+public class example1 {
+
+
+	public static void main(String[] args) throws IOException,ParseException, Exception{
+		
+		JSONParser jsonparser = new JSONParser();
+		FileReader filereader = new FileReader(".\\jsonfile\\emp.json");
+		
+		Object obj =  jsonparser.parse(filereader);
+		JSONObject empobj = (JSONObject) obj;
+		
+		String fname = (String) empobj.get("firstname");
+		String lname = (String) empobj.get("lastname");
+		
+		System.out.println("firstname:" +fname);
+		System.out.println("lastname:" +lname);
+		 
+		
+
+	}
+
+}
